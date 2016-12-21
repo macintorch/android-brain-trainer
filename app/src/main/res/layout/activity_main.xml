@@ -71,10 +71,10 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
         android:layout_alignBottom="@+id/startButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="15dp">
+        android:layout_alignParentStart="true">
 
         <Button
             android:text="3"

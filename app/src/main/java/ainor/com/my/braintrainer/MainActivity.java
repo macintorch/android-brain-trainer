@@ -6,11 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     Button startButton;
+    ArrayList<Integer> answers;
+    int locationOfCorrectAnswer;
 
     public void start (View view) {
         startButton.setVisibility(View.INVISIBLE);
@@ -32,5 +35,31 @@ public class MainActivity extends AppCompatActivity {
 
         //update sumTextView text
         sumTextView.setText(Integer.toString(a) + " + " + Integer.toString(b));
+
+        //generate answers and location of the answers
+
+        // location between 0 and 3
+        locationOfCorrectAnswer = rand.nextInt(4);
+
+        int incorrectAnswer;
+
+        for (int i =0; i<4; i++) {
+
+            if (i == locationOfCorrectAnswer) {
+
+                answers.add(a + b);
+
+            } else {
+
+                incorrectAnswer = rand.nextInt(41);
+
+                while (incorrectAnswer == a + b) {
+
+                    incorrectAnswer = rand.nextInt(41);
+
+                }
+                answers.add(incorrectAnswer);
+            }
+        }
     }
 }
