@@ -13,13 +13,19 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Button startButton;
+    TextView resultTextView;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOfCorrectAnswer;
+    int score = 0;
 
     public void chooseAnswer (View view) {
 
         if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
-            Log.i("correct","correct");
+            score++;
+            resultTextView.setText("Correct!");
+
+        } else {
+            resultTextView.setText("Wrong!");
         }
 
     }
@@ -39,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         Button button1 = (Button) findViewById(R.id.button1);
         Button button2 = (Button) findViewById(R.id.button2);
         Button button3 = (Button) findViewById(R.id.button3);
+        resultTextView = (TextView) findViewById(R.id.resultTextView);
 
         Random rand = new Random();
 

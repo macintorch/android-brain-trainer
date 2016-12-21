@@ -59,7 +59,7 @@
         android:textColor="@android:color/black"/>
 
     <TextView
-        android:text="Correct!"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/resultTextView"
