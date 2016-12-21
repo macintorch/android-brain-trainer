@@ -2,6 +2,7 @@ package ainor.com.my.braintrainer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
     Button startButton;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOfCorrectAnswer;
+
+    public void chooseAnswer (View view) {
+        Log.i("Tag", (String) view.getTag());
+    }
 
     public void start (View view) {
         startButton.setVisibility(View.INVISIBLE);
