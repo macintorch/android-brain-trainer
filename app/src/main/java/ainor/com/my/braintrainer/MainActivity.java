@@ -17,7 +17,11 @@ public class MainActivity extends AppCompatActivity {
     int locationOfCorrectAnswer;
 
     public void chooseAnswer (View view) {
-        Log.i("Tag", (String) view.getTag());
+
+        if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
+            Log.i("correct","correct");
+        }
+
     }
 
     public void start (View view) {
@@ -31,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
         startButton = (Button) findViewById(R.id.startButton);
         TextView sumTextView = (TextView) findViewById(R.id.sumTextView);
-        Button button00 = (Button) findViewById(R.id.button00);
-        Button button01 = (Button) findViewById(R.id.button01);
-        Button button10 = (Button) findViewById(R.id.button10);
-        Button button11 = (Button) findViewById(R.id.button11);
+        Button button0 = (Button) findViewById(R.id.button0);
+        Button button1 = (Button) findViewById(R.id.button1);
+        Button button2 = (Button) findViewById(R.id.button2);
+        Button button3 = (Button) findViewById(R.id.button3);
 
         Random rand = new Random();
 
@@ -73,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
         // assign the answers to each buttons
 
-        button00.setText(Integer.toString(answers.get(0)));
-        button01.setText(Integer.toString(answers.get(1)));
-        button10.setText(Integer.toString(answers.get(2)));
-        button11.setText(Integer.toString(answers.get(3)));
+        button0.setText(Integer.toString(answers.get(0)));
+        button1.setText(Integer.toString(answers.get(1)));
+        button2.setText(Integer.toString(answers.get(2)));
+        button3.setText(Integer.toString(answers.get(3)));
 
     }
 }

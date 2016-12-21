@@ -85,9 +85,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_gravity="fill"
-            android:tag="1"
+            android:tag="0"
             android:textSize="80dp"
-            android:id="@+id/button00"
+            android:id="@+id/button0"
             android:background="@android:color/holo_blue_dark"
             android:onClick="chooseAnswer"/>
         <Button
@@ -99,9 +99,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_gravity="fill"
-            android:tag="3"
+            android:tag="2"
             android:textSize="80dp"
-            android:id="@+id/button01"
+            android:id="@+id/button2"
             android:background="@android:color/holo_red_dark"
             android:onClick="chooseAnswer"/>
         <Button
@@ -113,9 +113,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_gravity="fill"
-            android:tag="2"
+            android:tag="1"
             android:textSize="80dp"
-            android:id="@+id/button10"
+            android:id="@+id/button1"
             android:background="@android:color/holo_green_light"
             android:onClick="chooseAnswer"/>
 
@@ -128,9 +128,9 @@
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_gravity="fill"
-            android:tag="4"
+            android:tag="3"
             android:textSize="80dp"
-            android:id="@+id/button11"
+            android:id="@+id/button3"
             android:background="@android:color/holo_purple"
             android:onClick="chooseAnswer"/>
     </GridLayout>
