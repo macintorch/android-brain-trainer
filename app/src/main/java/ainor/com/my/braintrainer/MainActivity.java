@@ -22,10 +22,38 @@ public class MainActivity extends AppCompatActivity {
     Button button1;
     Button button2;
     Button button3;
+    Button playAgainButton;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOfCorrectAnswer;
     int score = 0;
     int numberOfQuestions = 0;
+
+    public void playAgain (View view) {
+
+        score = 0;
+        numberOfQuestions = 0;
+
+        timerTextView.setText("30s");
+        pointsTextView.setText("0/0");
+        resultTextView.setText("");
+        playAgainButton.setVisibility(View.INVISIBLE);
+
+        new CountDownTimer(30100,1000) {
+
+            @Override
+            public void onTick(long l) {
+                timerTextView.setText(String.valueOf (l / 1000) + "s");
+            }
+
+            @Override
+            public void onFinish() {
+                timerTextView.setText("0s");
+                resultTextView.setText("Your score" + Integer.toString(score)+"/"+Integer.toString(numberOfQuestions));
+                playAgainButton.setVisibility(View.VISIBLE);
+            }
+        }.start();
+
+    }
 
     public void generateQuestions () {
         Random rand = new Random();
@@ -108,22 +136,11 @@ public class MainActivity extends AppCompatActivity {
         resultTextView = (TextView) findViewById(R.id.resultTextView);
         pointsTextView = (TextView) findViewById(R.id.pointsTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
+        playAgainButton = (Button) findViewById(R.id.playAgainButton);
 
         generateQuestions();
 
-        new CountDownTimer(30100,1000) {
-
-            @Override
-            public void onTick(long l) {
-                timerTextView.setText(String.valueOf (l / 1000) + "s");
-            }
-
-            @Override
-            public void onFinish() {
-                timerTextView.setText("0s");
-                resultTextView.setText("Your score" + Integer.toString(score)+"/"+Integer.toString(numberOfQuestions));
-            }
-        }.start();
+        playAgain(findViewById(R.id.playAgainButton));
 
     }
 }

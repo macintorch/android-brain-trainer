@@ -134,4 +134,14 @@
             android:background="@android:color/holo_purple"
             android:onClick="chooseAnswer"/>
     </GridLayout>
+
+    <Button
+        android:text="Play again!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resultTextView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/playAgainButton"
+        android:onClick="playAgain"
+        android:visibility="invisible"/>
 </RelativeLayout>
