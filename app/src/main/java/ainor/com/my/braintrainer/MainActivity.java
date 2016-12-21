@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         pointsTextView.setText("0/0");
         resultTextView.setText("");
         playAgainButton.setVisibility(View.INVISIBLE);
+        generateQuestions();
 
         new CountDownTimer(30100,1000) {
 
@@ -137,8 +138,6 @@ public class MainActivity extends AppCompatActivity {
         pointsTextView = (TextView) findViewById(R.id.pointsTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
         playAgainButton = (Button) findViewById(R.id.playAgainButton);
-
-        generateQuestions();
 
         playAgain(findViewById(R.id.playAgainButton));
 
