@@ -1,5 +1,6 @@
 package ainor.com.my.braintrainer;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     TextView resultTextView;
     TextView pointsTextView;
     TextView sumTextView;
+    TextView timerTextView;
     Button button0;
     Button button1;
     Button button2;
@@ -105,8 +107,23 @@ public class MainActivity extends AppCompatActivity {
         button3 = (Button) findViewById(R.id.button3);
         resultTextView = (TextView) findViewById(R.id.resultTextView);
         pointsTextView = (TextView) findViewById(R.id.pointsTextView);
+        timerTextView = (TextView) findViewById(R.id.timerTextView);
 
         generateQuestions();
+
+        new CountDownTimer(30100,1000) {
+
+            @Override
+            public void onTick(long l) {
+                timerTextView.setText(String.valueOf (l / 1000) + "s");
+            }
+
+            @Override
+            public void onFinish() {
+                timerTextView.setText("0s");
+                resultTextView.setText("Your score" + Integer.toString(score)+"/"+Integer.toString(numberOfQuestions));
+            }
+        }.start();
 
     }
 }
