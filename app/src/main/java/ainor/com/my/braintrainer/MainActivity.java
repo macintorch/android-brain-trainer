@@ -15,44 +15,17 @@ public class MainActivity extends AppCompatActivity {
     Button startButton;
     TextView resultTextView;
     TextView pointsTextView;
+    TextView sumTextView;
+    Button button0;
+    Button button1;
+    Button button2;
+    Button button3;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOfCorrectAnswer;
     int score = 0;
     int numberOfQuestions = 0;
 
-    public void chooseAnswer (View view) {
-
-        if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
-            score ++;
-            resultTextView.setText("Correct!");
-
-        } else {
-            resultTextView.setText("Wrong!");
-        }
-
-        numberOfQuestions ++;
-        pointsTextView.setText(Integer.toString(score)+"/"+Integer.toString(numberOfQuestions));
-
-    }
-
-    public void start (View view) {
-        startButton.setVisibility(View.INVISIBLE);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        startButton = (Button) findViewById(R.id.startButton);
-        TextView sumTextView = (TextView) findViewById(R.id.sumTextView);
-        Button button0 = (Button) findViewById(R.id.button0);
-        Button button1 = (Button) findViewById(R.id.button1);
-        Button button2 = (Button) findViewById(R.id.button2);
-        Button button3 = (Button) findViewById(R.id.button3);
-        resultTextView = (TextView) findViewById(R.id.resultTextView);
-        pointsTextView = (TextView) findViewById(R.id.pointsTextView);
-
+    public void generateQuestions () {
         Random rand = new Random();
 
         //create a random number between 0-21
@@ -66,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         // location between 0 and 3
         locationOfCorrectAnswer = rand.nextInt(4);
+
+        // remove the answers from arraylist each time it generates new answer
+
+        answers.clear();
 
         int incorrectAnswer;
 
@@ -94,6 +71,42 @@ public class MainActivity extends AppCompatActivity {
         button1.setText(Integer.toString(answers.get(1)));
         button2.setText(Integer.toString(answers.get(2)));
         button3.setText(Integer.toString(answers.get(3)));
+    }
+
+    public void chooseAnswer (View view) {
+
+        if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
+            score ++;
+            resultTextView.setText("Correct!");
+
+        } else {
+            resultTextView.setText("Wrong!");
+        }
+
+        numberOfQuestions ++;
+        pointsTextView.setText(Integer.toString(score)+"/"+Integer.toString(numberOfQuestions));
+        generateQuestions();
+    }
+
+    public void start (View view) {
+        startButton.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        startButton = (Button) findViewById(R.id.startButton);
+        sumTextView = (TextView) findViewById(R.id.sumTextView);
+        button0 = (Button) findViewById(R.id.button0);
+        button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        resultTextView = (TextView) findViewById(R.id.resultTextView);
+        pointsTextView = (TextView) findViewById(R.id.pointsTextView);
+
+        generateQuestions();
 
     }
 }
